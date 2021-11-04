@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>123Soft invoice generator</title>
+
+    <style>
+        button {
+            border: 3px solid #73AD21;
+            background-color: #73AD21;
+            margin: 10px;
+        }
+        .root-page-btn {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 80%;
+            min-height: 100px;
+            padding: 20px;
+            font-size: 200%;
+            display: block;
+        }
+        input[type=text] {
+            width: 500px;
+        }
+        caption {
+            font-weight: bold;
+        }
+        table {
+            margin: 20px;
+        }
+    </style>
+    
+    <script type="text/javascript" src="js/base64/EN.xml.js"></script>
+    <script type="text/javascript" src="js/base64/EN.html.js"></script>
+    <script type="text/javascript" src="js/base64/RU.xml.js"></script>
+    <script type="text/javascript" src="js/base64/RU.html.js"></script>
+    <script type="text/javascript" src="js/base64/UA.xml.js"></script>
+    <script type="text/javascript" src="js/base64/UA.html.js"></script>
+    <script type="text/javascript" src="js/base64/BG.xml.js"></script>
+    <script type="text/javascript" src="js/base64/BG.html.js"></script>
+    <script type="text/javascript" src="js/base64/CZ.xml.js"></script>
+    <script type="text/javascript" src="js/base64/CZ.html.js"></script>
+    <script type="text/javascript" src="js/base64/LT.xml.js"></script>
+    <script type="text/javascript" src="js/base64/LT.html.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/languages.js"></script>
+    <script type="text/javascript" src="js/form.js"></script>
+    <script type="text/javascript" src="js/doc.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</head>
+<body>
+    <h1>Welcome to 123Soft invoice generator</h1>
+    <div id="utils" style="display: none;">
+        <input type="file" id="base64-file-input" onchange="OnBase64FileInputChange()"/>
+        <h3>Contents of the file:</h3>
+        <textarea id="base64-file-input-textarea" style="width: 100%; height: 300px; margin-bottom: 20px;"></textarea>
+    </div>
+    <div>
+        <div id="root-page" style="display: block;">
+            <button class="root-page-btn" onclick="OnCreateFromScratch()">Create new invoice from scratch</button>
+            <button class="root-page-btn" onclick="OnLoadLastValidatedData()">Load last validated data</button>
+            <button class="root-page-btn" onclick="OnCreateFromPrevious()">Create new invoice based on previous invoice</button>
+        </div>
+        <div id="form-page" style="display: none;">
+            <h2 id="form-title"></h2>
+            <label for="language">Choose invoice language:</label>
+            <select name="language" id="language-select" onchange="OnLanguageSelectChange()">
+                <option value="English">English</option>
+                <option value="Russian">Russian</option>
+                <option value="Ukrainian">Ukrainian</option>
+                <option value="Bulgarian">Bulgarian</option>
+                <option value="Czech">Czech</option>
+                <option value="Lithuanian">Lithuanian</option>
+            </select>
+            <table class="invisible-table" style="font-weight: bold;">
+                <caption style="color: red;">Information which changes frequently</caption>
+                <tr>
+                    <td id="invoice-no-label">Invoice ordinal number:</td>
+                    <td>
+                        <input type="number" id="invoice-short-no-input" min="1">
+                        <input type="text" id="invoice-full-no-input">
+                    </td>
+                </tr>
+                <tr><td>Invoice date:</td><td><input type="date" id="invoice-date-input"></td></tr>
+                <tr><td>Services period begin date:</td><td><input type="date" id="services-period-begin-date-input" onchange="OnServicesPeriodBeginDateInputChange()"></td></tr>
+                <tr><td>Services period end date:</td><td><input type="date" id="services-period-end-date-input"></td></tr>
+                <tr><td>Term of payment:</td><td><input type="date" id="term-of-payment-input"></td></tr>
+                <tr>
+                    <td>Currency:</td>
+                    <td>
+                        <select id="currency-select">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                        </select> 
+                    </td>
+                </tr>
+                <tr><td>Amount:</td><td><input type="number" id="amount-input" min="0" step="any"></td></tr>
+            </table>
+            
+            <table class="invisible-table">
+                <caption>Basic information</caption>
+                <tr><td>Contract No.:</td><td><input type="text" id="contract-no-input"></td></tr>
+                <tr><td>Contract date:</td><td><input type="date" id="contract-date-input"></td></tr>
+                <tr><td>Tax number:</td><td><input type="text" id="tax-number-input"></td></tr>
+                <tr><td>Registration number:</td><td><input type="text" id="registration-number-input"></td></tr>
+            </table>
+            <p id="not-vat-payer-para" style="display: none;">
+                <input type="checkbox" id="not-vat-payer-ckeckbox">
+                <label for="not-vat-payer-ckeckbox">Nie jest podatnikiem VAT (Not VAT payer)</label>
+            </p>
+            <table class="invisible-table">
+                <tr><td>Bank account number:</td><td><input type="text" id="bank-account-number-input"></td></tr>
+                <tr><td>Beneficiary name:</td><td><input type="text" id="beneficiary-name-input"></td></tr>
+                <tr><td>Beneficiary address:</td><td><input type="text" id="beneficiary-address-input"></td></tr>
+                <tr><td>Bank name:</td><td><input type="text" id="bank-name-input"></td></tr>
+                <tr><td>Bank address:</td><td><input type="text" id="bank-address-input"></td></tr>
+                <tr><td>SWIFT/BIC:</td><td><input type="text" id="swift-input"></td></tr>
+            </table>
+            <p>
+                <input type="checkbox" id="med-bank-ckeckbox" onchange="OnMedBankCheckboxChange()">
+                <label for="med-bank-ckeckbox">Use intermediary bank</label>
+            </p>
+            <table class="invisible-table" id="med-bank-table" style="display: none;">
+                <tr><td>Intermediary bank name:</td><td><input type="text" id="med-bank-name-input"></td></tr>
+                <tr><td>Intermediary bank address:</td><td><input type="text" id="med-bank-address-input"></td></tr>
+                <tr><td>Intermediary bank SWIFT/BIC:</td><td><input type="text" id="med-bank-swift-input"></td></tr>
+                <tr><td>Acc. In correspondent bank:</td><td><input type="text" id="med-bank-acc-input"></td></tr>
+            </table>
+            <table class="invisible-table">
+                <caption>Informacje w języku Poskim</caption>
+                <tr>
+                    <td>Wystawiający:</td>
+                    <td>
+                        <select id="company-type-pol">
+                            <option value="PE">Przedsiębiorca indywidualny</option>
+                            <option value="Firm">Firma</option>
+                        </select>
+                        <input type="text" id="pe-name-polish-input" style="width: 302px;">
+                    </td>
+                </tr>
+                <tr><td>Podpisujący:</td><td><input type="text" id="signer-name-polish-input"></td></tr>
+                <tr><td>Państwo:</td><td><input type="text" id="country-polish-input"></td></tr>
+                <tr><td>Stan, obwód, itp. (opcjonalnie):</td><td><input type="text" id="address-extra-polish-input"></td></tr>
+                <tr><td>Miasto:</td><td><input type="text" id="city-polish-input"></td></tr>
+                <tr><td>Ulica i numer domu:</td><td><input type="text" id="street-polish-input"></td></tr>
+            </table>
+            <table class="invisible-table">
+                <caption>Information in local language</caption>
+                <tr><td>Company/PE name:</td><td><input type="text" id="pe-name-local-input"></td></tr>
+                <tr><td>Signer:</td><td><input type="text" id="signer-name-local-input"></td></tr>
+                <tr><td>Country:</td><td><input type="text" id="country-local-input"></td></tr>
+                <tr><td>State, region etc. (optional):</td><td><input type="text" id="address-extra-local-input"></td></tr>
+                <tr><td>City:</td><td><input type="text" id="city-local-input"></td></tr>
+                <tr><td>Postal code:</td><td><input type="text" id="postal-code-input"></td></tr>
+                <tr><td>Street, number:</td><td><input type="text" id="street-local-input"></td></tr>
+            </table>
+            <p id="error-displayer" style="display: none; color: red;"></p>
+            <div>
+                <button onclick="OnFormPageGoBack()">Go back &amp; lose changes</button>
+                <button onclick="OnFormPageGenerateInvoice()">Save &amp; download XML file</button>
+                <button onclick="OnFormPageGenerateHtml()">Generate version for printing</button>
+                <button onclick="OnFormPageSaveJSON()">Save to JSON</button>
+                <button onclick="document.getElementById('load-json-input').click();">Load from JSON</button>
+                <input type="file" id="load-json-input" onchange="OnFormPageLoadFromJSON()" style="display: none;"/>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

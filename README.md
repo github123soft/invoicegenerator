@@ -1,2 +1,2 @@
-# invoicegenerator
-123Soft invoice generator for subcontractors
+# invoices
+123Soft html/xlsx invoice generator

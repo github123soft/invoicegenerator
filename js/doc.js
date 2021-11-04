@@ -1,0 +1,98 @@
+function fillTemplate(xml, data) {
+    var invoiceNo;
+    if(isCustomInvoiceNo(data.language)){
+        invoiceNo = data.invoiceFullNo;
+    }else{
+        invoiceNo = data.contractNo + "/" + data.invoiceShortNo;
+    }
+    xml = xml.replaceAll(/\{invoiceNo\}/g, invoiceNo);
+
+    var invoiceDate = parseDate(data.invoiceDate);
+    xml = xml.replaceAll(/\{invoiceDateLocal\}/g, dateToLocal(invoiceDate, data.language));
+    xml = xml.replaceAll(/\{invoiceDatePol\}/g, dateToPolish(invoiceDate));
+
+    xml = xml.replaceAll(/\{contractNo\}/g, data.contractNo);
+
+    var contractDate = parseDate(data.contractDate);
+    xml = xml.replaceAll(/\{contractDateLocal\}/g, dateToLocal(contractDate, data.language));
+    xml = xml.replaceAll(/\{contractDatePol\}/g, dateToPolish(contractDate));
+
+    var companyTypePol;
+    if(data.companyTypePol.localeCompare("PE") == 0){
+        companyTypePol = "Przedsiębiorca indywidualny";
+    }else if(data.companyTypePol.localeCompare("Firm") == 0){
+        companyTypePol = "Firma";
+    }else{
+        throw "Invalid or unknown company type: " + "'" + data.companyTypePol + "'";
+    }
+    xml = xml.replaceAll(/\{companyTypePol\}/g, companyTypePol);
+    
+    xml = xml.replaceAll(/\{PENameLocal\}/g, data.peNameLocal);
+    xml = xml.replaceAll(/\{PENamePol\}/g, data.peNamePolish);
+
+    xml = xml.replaceAll(/\{countryLocal\}/g, data.countryLocal);
+    xml = xml.replaceAll(/\{countryPol\}/g, data.countryPolish);
+
+    var addressExtraLocal = data.addressExtraLocal ?? '';
+    if(addressExtraLocal.length > 0){
+        addressExtraLocal = addressExtraLocal + ", ";
+    }
+    xml = xml.replaceAll(/\{addressExtraLocal\}/g, addressExtraLocal);
+
+    var addressExtraPol = data.addressExtraPol ?? '';
+    if(addressExtraPol.length > 0){
+        addressExtraPol = addressExtraPol + ", ";
+    }
+    xml = xml.replaceAll(/\{addressExtraPol\}/g, addressExtraPol);
+
+    xml = xml.replaceAll(/\{cityLocal\}/g, data.cityLocal);
+    xml = xml.replaceAll(/\{cityPol\}/g, data.cityPolish);
+
+    xml = xml.replaceAll(/\{postalCode\}/g, data.postalCode);
+
+    xml = xml.replaceAll(/\{streetLocal\}/g, data.streetLocal);
+    xml = xml.replaceAll(/\{streetPol\}/g, data.streetPolish);
+
+    xml = xml.replaceAll(/\{taxNumber\}/g, data.taxNumber);
+    var taxNumberPol = evalTaxNumberPol(data.taxNumber, data.notVatPayer ?? false, data.language);
+    xml = xml.replaceAll(/\{taxNumberPol\}/g, taxNumberPol);
+
+    document.getElementById("not-vat-payer-ckeckbox").checked = data.notVatPayer ?? false;
+
+    xml = xml.replaceAll(/\{registrationNumber\}/g, data.registrationNumber);
+    xml = xml.replaceAll(/\{bankAccountNo\}/g, data.bankAccountNumber);
+    xml = xml.replaceAll(/\{beneficiaryName\}/g, data.beneficiaryName);
+    xml = xml.replaceAll(/\{beneficiaryAddress\}/g, data.beneficiaryAddress);
+    xml = xml.replaceAll(/\{bankName\}/g, data.bankName);
+    xml = xml.replaceAll(/\{bankAddress\}/g, data.bankAddress);
+    xml = xml.replaceAll(/\{swiftCode\}/g, data.swiftCode);
+    
+    xml = xml.replaceAll(/\{medBankDisplay\}/g, data.useMedBank ? 'table-row' : 'none');
+    
+    xml = xml.replaceAll(/\{medBankName\}/g, data.useMedBank ? data.medBankName : '');
+    xml = xml.replaceAll(/\{medBankAddress\}/g, data.useMedBank ? data.medBankAddress : '');
+    xml = xml.replaceAll(/\{medBankSwiftCode\}/g, data.useMedBank ? data.medBankSwiftCode : '');
+    xml = xml.replaceAll(/\{medBankAccNo\}/g, data.useMedBank ? data.medBankAcc : '');
+
+    var serviceBeginDate = parseDate(data.serviceBeginDate);
+    xml = xml.replaceAll(/\{startDateLocal\}/g, dateToLocal(serviceBeginDate, data.language));
+    xml = xml.replaceAll(/\{startDatePol\}/g, dateToPolish(serviceBeginDate));
+
+    var serviceEndDate = parseDate(data.serviceEndDate);
+    xml = xml.replaceAll(/\{endDateLocal\}/g, dateToLocal(serviceEndDate, data.language));
+    xml = xml.replaceAll(/\{endDatePol\}/g, dateToPolish(serviceEndDate));
+
+    xml = xml.replaceAll(/\{currency\}/g, data.currency);
+    
+    xml = xml.replaceAll(/\{amountLocal\}/g, amountToLocal(data.amount, data.language));
+    xml = xml.replaceAll(/\{amountPol\}/g, amountToPolish(data.amount));
+    
+    var termOfPayment = parseDate(data.termOfPayment);
+    xml = xml.replaceAll(/\{termOfPaimentLocal\}/g, dateToLocal(termOfPayment, data.language));
+    xml = xml.replaceAll(/\{termOfPaimentPol\}/g, dateToPolish(termOfPayment));
+
+    xml = xml.replaceAll(/\{signerNameLocal\}/g, data.signerNameLocal);
+    xml = xml.replaceAll(/\{signerNamePol\}/g, data.signerNamePolish);
+
+    return xml;
+}
