@@ -244,6 +244,7 @@ function OnLanguageSelectChange() {
     }
 
     document.getElementById("not-vat-payer-para").style.display = isEU(language) ? "block" : "none";
+    document.getElementById("information-in-local-language").style.display = isBilingual(language) ? "block" : "none";
 }
 
 function OnMedBankCheckboxChange() {

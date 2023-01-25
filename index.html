@@ -44,6 +44,10 @@
     <script type="text/javascript" src="js/base64/CZ.html.js"></script>
     <script type="text/javascript" src="js/base64/LT.xml.js"></script>
     <script type="text/javascript" src="js/base64/LT.html.js"></script>
+    <script type="text/javascript" src="js/base64/PL.xml.js"></script>
+    <script type="text/javascript" src="js/base64/PL.html.js"></script>
+    <script type="text/javascript" src="js/base64/KZ.xml.js"></script>
+    <script type="text/javascript" src="js/base64/KZ.html.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/languages.js"></script>
     <script type="text/javascript" src="js/form.js"></script>
@@ -67,12 +71,14 @@
             <h2 id="form-title"></h2>
             <label for="language">Choose invoice language:</label>
             <select name="language" id="language-select" onchange="OnLanguageSelectChange()">
-                <option value="English">English</option>
-                <option value="Russian">Russian</option>
-                <option value="Ukrainian">Ukrainian</option>
                 <option value="Bulgarian">Bulgarian</option>
                 <option value="Czech">Czech</option>
+                <option value="English">English</option>
+                <option value="Kazakh">Kazakh</option>
                 <option value="Lithuanian">Lithuanian</option>
+                <option value="Polish">Polish</option>
+                <option value="Russian">Russian</option>
+                <option value="Ukrainian">Ukrainian</option>
             </select>
             <table class="invisible-table" style="font-weight: bold;">
                 <caption style="color: red;">Information which changes frequently</caption>
@@ -145,15 +151,15 @@
                 <tr><td>Stan, obwód, itp. (opcjonalnie):</td><td><input type="text" id="address-extra-polish-input"></td></tr>
                 <tr><td>Miasto:</td><td><input type="text" id="city-polish-input"></td></tr>
                 <tr><td>Ulica i numer domu:</td><td><input type="text" id="street-polish-input"></td></tr>
+                <tr><td>Kod pocztowy:</td><td><input type="text" id="postal-code-input"></td></tr>
             </table>
-            <table class="invisible-table">
+            <table class="invisible-table" id="information-in-local-language">
                 <caption>Information in local language</caption>
                 <tr><td>Company/PE name:</td><td><input type="text" id="pe-name-local-input"></td></tr>
                 <tr><td>Signer:</td><td><input type="text" id="signer-name-local-input"></td></tr>
                 <tr><td>Country:</td><td><input type="text" id="country-local-input"></td></tr>
                 <tr><td>State, region etc. (optional):</td><td><input type="text" id="address-extra-local-input"></td></tr>
                 <tr><td>City:</td><td><input type="text" id="city-local-input"></td></tr>
-                <tr><td>Postal code:</td><td><input type="text" id="postal-code-input"></td></tr>
                 <tr><td>Street, number:</td><td><input type="text" id="street-local-input"></td></tr>
             </table>
             <p id="error-displayer" style="display: none; color: red;"></p>

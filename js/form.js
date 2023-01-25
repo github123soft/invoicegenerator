@@ -26,12 +26,13 @@ function validateForm() {
     input = document.getElementById("invoice-date-input");
     result.invoiceDate = normalizeDate(input.valueAsDate);
     checkInput(result.invoiceDate, input, "Invalid invoice date. Cannot be empty.");
-    checkInput(result.contractDate < result.invoiceDate, input, "Invoice date must be greater than contract date.");
+    checkInput(result.contractDate <= result.invoiceDate, input, "Invoice date must be not less than contract date.");
 
     input = document.getElementById("services-period-begin-date-input");
     result.serviceBeginDate = normalizeDate(input.valueAsDate);
     checkInput(result.serviceBeginDate, input, "Invalid services period begin date. Cannot be empty.");
     checkInput(result.serviceBeginDate <= result.invoiceDate, input, "Invalid services period begin date. Cannot be greater than invoice date.");
+    checkInput(result.serviceBeginDate >= result.contractDate, input, "Invalid services period begin date. Cannot be less than contract date.");
 
     input = document.getElementById("services-period-end-date-input");
     result.serviceEndDate = normalizeDate(input.valueAsDate);
@@ -129,27 +130,36 @@ function validateForm() {
     result.companyTypePol = input.value;
     checkInput(result.companyTypePol, input, "Invalid company type. Cannot be empty.");
     
-    input = document.getElementById("pe-name-local-input");
-    result.peNameLocal = input.value.trim();
-    checkInput(result.peNameLocal, input, "Invalid PE name in local language. Cannot be empty.");
+    if(isBilingual(result.language)){
+        input = document.getElementById("pe-name-local-input");
+        result.peNameLocal = input.value.trim();
+        checkInput(result.peNameLocal, input, "Invalid PE name in local language. Cannot be empty.");
 
-    input = document.getElementById("signer-name-local-input");
-    result.signerNameLocal = input.value.trim();
-    checkInput(result.signerNameLocal, input, "Invalid signer name in local language. Cannot be empty.");
+        input = document.getElementById("signer-name-local-input");
+        result.signerNameLocal = input.value.trim();
+        checkInput(result.signerNameLocal, input, "Invalid signer name in local language. Cannot be empty.");
 
-    input = document.getElementById("country-local-input");
-    result.countryLocal = input.value.trim();
-    checkInput(result.countryLocal, input, "Invalid country in local language. Cannot be empty.");
+        input = document.getElementById("country-local-input");
+        result.countryLocal = input.value.trim();
+        checkInput(result.countryLocal, input, "Invalid country in local language. Cannot be empty.");
 
-    result.addressExtraLocal = document.getElementById("address-extra-local-input").value.trim();
-    
-    input = document.getElementById("city-local-input");
-    result.cityLocal = input.value.trim();
-    checkInput(result.cityLocal, input, "Invalid city in local language. Cannot be empty.");
+        result.addressExtraLocal = document.getElementById("address-extra-local-input").value.trim();
+        
+        input = document.getElementById("city-local-input");
+        result.cityLocal = input.value.trim();
+        checkInput(result.cityLocal, input, "Invalid city in local language. Cannot be empty.");
 
-    input = document.getElementById("street-local-input");
-    result.streetLocal = input.value.trim();
-    checkInput(result.streetLocal, input, "Invalid street/building number in local language. Cannot be empty.");
+        input = document.getElementById("street-local-input");
+        result.streetLocal = input.value.trim();
+        checkInput(result.streetLocal, input, "Invalid street/building number in local language. Cannot be empty.");
+    }else{
+        result.peNameLocal = result.peNamePolish;
+        result.signerNameLocal = result.signerNamePolish;
+        result.countryLocal = result.countryPolish;
+        result.addressExtraLocal = result.addressExtraPol;
+        result.cityLocal = result.cityPolish;
+        result.streetLocal = result.streetPolish;
+    }
 
     return result;
 }
