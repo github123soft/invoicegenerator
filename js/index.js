@@ -233,18 +233,42 @@ function OnLanguageSelectChange() {
         label.innerHTML = "";
         shortInput.style.display = "none";
         fullInput.style.display = "none";
-    }else if(isCustomInvoiceNo(language)){
-        label.innerHTML = "Invoice No.:";
-        shortInput.style.display = "none";
-        fullInput.style.display = "block";
     }else{
-        label.innerHTML = "Invoice ordinal number:";
-        shortInput.style.display = "block";
-        fullInput.style.display = "none";
+        if(isCustomInvoiceNo(language)){
+            label.innerHTML = "Invoice No.:";
+            shortInput.style.display = "none";
+            fullInput.style.display = "block";
+        }else{
+            label.innerHTML = "Invoice ordinal number:";
+            shortInput.style.display = "block";
+            fullInput.style.display = "none";
+        }
+
+        
+        var registrationNumberInput = document.getElementById("registration-number-input");
+        var registrationNumberCheckbox = document.getElementById("registration-number-ckeckbox");
+
+        if(requiresRegistrationNumber(language)){
+            registrationNumberInput.style.display = "block";
+            registrationNumberCheckbox.checked = true;
+            registrationNumberCheckbox.disabled = true;
+        }else{
+            registrationNumberInput.style.display = "none";
+            registrationNumberCheckbox.disabled = false;
+        }
     }
 
     document.getElementById("not-vat-payer-para").style.display = isEU(language) ? "block" : "none";
     document.getElementById("information-in-local-language").style.display = isBilingual(language) ? "block" : "none";
+
+    OnRegistrationNumberCheckboxChange();
+}
+
+function OnRegistrationNumberCheckboxChange() {
+    var registrationNumberInput = document.getElementById("registration-number-input");
+    var registrationNumberCheckbox = document.getElementById("registration-number-ckeckbox");
+    
+    registrationNumberInput.style.display = registrationNumberCheckbox.checked ? "block" : "none";
 }
 
 function OnMedBankCheckboxChange() {

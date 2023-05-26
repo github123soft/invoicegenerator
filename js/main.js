@@ -113,7 +113,10 @@ function loadDataFromLocalStorage() {
     var dataString = localStorage.getItem("last-valid-data");
     if(!dataString)
         throw "There is no validated data to load from the browser's local storage.";
-    return JSON.parse(dataString);
+    var result = JSON.parse(dataString);
+    if(undefined === result.hasRegistrationNumber)
+        result.hasRegistrationNumber = true;
+    return result;
 }
 
 function saveDataToLocalStorage(data) {

@@ -15,6 +15,8 @@ function lang2base64xml(lang) {
         return PL_xml;
     if(lang.localeCompare("Kazakh") == 0)
         return KZ_xml;
+    if(lang.localeCompare("Azerbaijan") == 0)
+        return AZ_xml;
     
     throw "Internal program error: unexpected language code.";
 }
@@ -36,6 +38,8 @@ function lang2base64html(lang) {
         return PL_html;
     if(lang.localeCompare("Kazakh") == 0)
         return KZ_html;
+    if(lang.localeCompare("Azerbaijan") == 0)
+        return AZ_html;
     
     throw "Internal program error: unexpected language code.";
 }
@@ -57,6 +61,8 @@ function dateToLocal(parsedDate, lang) {
         return parsedDate.yyyy + '-' + parsedDate.mm + '-' + parsedDate.dd;
     if(lang.localeCompare("Kazakh") == 0)
         return parsedDate.dd + '/' + parsedDate.mm + '/' + parsedDate.yyyy;
+    if(lang.localeCompare("Azerbaijan") == 0)
+        return parsedDate.mm + '/' + parsedDate.dd + '/' + parsedDate.yyyy;
     
     throw "Internal program error: unexpected language code.";
 }
@@ -78,6 +84,8 @@ function amountToLocal(amount, lang) {
         return formatAmount(amount, ',');
     if(lang.localeCompare("Kazakh") == 0)
         return formatAmount(amount, ',');
+    if(lang.localeCompare("Azerbaijan") == 0)
+        return formatAmount(amount, '.');
     
     throw "Internal program error: unexpected language code.";
 }
@@ -98,6 +106,8 @@ function isCustomInvoiceNo(lang) {
     if(lang.localeCompare("Polish") == 0)
         return true;
     if(lang.localeCompare("Kazakh") == 0)
+        return false;
+    if(lang.localeCompare("Azerbaijan") == 0)
         return false;
     
     throw "Internal program error: unexpected language code.";
@@ -122,4 +132,26 @@ function evalTaxNumberPol(taxNumber, notVatPayer, lang) {
     }else{
         return taxNumber;
     }
+}
+
+function currencyToLocal(currency, lang) {
+    if((lang.localeCompare("Azerbaijan") == 0) && (currency.localeCompare("USD") == 0))
+        return "ABŞ dolları";
+    else
+        return currency;
+}
+
+function requiresRegistrationNumber(lang) {
+    return (lang.localeCompare("Azerbaijan") != 0);
+}
+
+function noRegistrationNumberPol() {
+    return "Brak";
+}
+        
+function noRegistrationNumberLocal(lang) {
+    if(lang.localeCompare("Azerbaijan") == 0)
+        return "Qeydiyyat nömrəsi yoxdur";
+    
+    throw "Internal program error: unexpected language code.";
 }

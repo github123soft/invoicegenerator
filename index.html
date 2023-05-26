@@ -48,6 +48,8 @@
     <script type="text/javascript" src="js/base64/PL.html.js"></script>
     <script type="text/javascript" src="js/base64/KZ.xml.js"></script>
     <script type="text/javascript" src="js/base64/KZ.html.js"></script>
+    <script type="text/javascript" src="js/base64/AZ.xml.js"></script>
+    <script type="text/javascript" src="js/base64/AZ.html.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/languages.js"></script>
     <script type="text/javascript" src="js/form.js"></script>
@@ -71,6 +73,7 @@
             <h2 id="form-title"></h2>
             <label for="language">Choose invoice language:</label>
             <select name="language" id="language-select" onchange="OnLanguageSelectChange()">
+                <option value="Azerbaijan">Azerbaijan</option>
                 <option value="Bulgarian">Bulgarian</option>
                 <option value="Czech">Czech</option>
                 <option value="English">English</option>
@@ -110,7 +113,13 @@
                 <tr><td>Contract No.:</td><td><input type="text" id="contract-no-input"></td></tr>
                 <tr><td>Contract date:</td><td><input type="date" id="contract-date-input"></td></tr>
                 <tr><td>Tax number:</td><td><input type="text" id="tax-number-input"></td></tr>
-                <tr><td>Registration number:</td><td><input type="text" id="registration-number-input"></td></tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="registration-number-ckeckbox" onchange="OnRegistrationNumberCheckboxChange()">
+                        <label for="registration-number-ckeckbox">Registration number:</label>
+                    </td>
+                    <td><input type="text" id="registration-number-input"></td>
+                </tr>
             </table>
             <p id="not-vat-payer-para" style="display: none;">
                 <input type="checkbox" id="not-vat-payer-ckeckbox">

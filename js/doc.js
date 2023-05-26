@@ -59,7 +59,14 @@ function fillTemplate(xml, data) {
 
     document.getElementById("not-vat-payer-ckeckbox").checked = data.notVatPayer ?? false;
 
-    xml = xml.replaceAll(/\{registrationNumber\}/g, data.registrationNumber);
+    if(data.hasRegistrationNumber){
+        xml = xml.replaceAll(/\{registrationNumber\}/g, data.registrationNumber);
+        xml = xml.replaceAll(/\{registrationNumberLocal\}/g, data.registrationNumber);
+    }else{
+        xml = xml.replaceAll(/\{registrationNumber\}/g, noRegistrationNumberPol());
+        xml = xml.replaceAll(/\{registrationNumberLocal\}/g, noRegistrationNumberLocal(data.language));
+    }
+    
     xml = xml.replaceAll(/\{bankAccountNo\}/g, data.bankAccountNumber);
     xml = xml.replaceAll(/\{beneficiaryName\}/g, data.beneficiaryName);
     xml = xml.replaceAll(/\{beneficiaryAddress\}/g, data.beneficiaryAddress);
@@ -83,6 +90,7 @@ function fillTemplate(xml, data) {
     xml = xml.replaceAll(/\{endDatePol\}/g, dateToPolish(serviceEndDate));
 
     xml = xml.replaceAll(/\{currency\}/g, data.currency);
+    xml = xml.replaceAll(/\{currencyLocal\}/g, currencyToLocal(data.currency, data.language));
     
     xml = xml.replaceAll(/\{amountLocal\}/g, amountToLocal(data.amount, data.language));
     xml = xml.replaceAll(/\{amountPol\}/g, amountToPolish(data.amount));

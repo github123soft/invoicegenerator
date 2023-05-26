@@ -57,9 +57,13 @@ function validateForm() {
     result.taxNumber = input.value.trim();
     checkInput(result.taxNumber, input, "Invalid tax number. Cannot be empty.");
 
+    input = document.getElementById("registration-number-ckeckbox");
+    result.hasRegistrationNumber = input.checked;
+    
     input = document.getElementById("registration-number-input");
     result.registrationNumber = input.value.trim();
-    checkInput(result.registrationNumber, input, "Invalid registration number. Cannot be empty.");
+    if(result.hasRegistrationNumber)
+        checkInput(result.registrationNumber, input, "Invalid registration number. Cannot be empty.");
 
     result.notVatPayer =  document.getElementById("not-vat-payer-ckeckbox").checked;
 
@@ -177,6 +181,7 @@ function fillForm(data) {
     document.getElementById("amount-input").value = data.amount;
     setDateInputValue("term-of-payment-input", data.termOfPayment);
     document.getElementById("tax-number-input").value = data.taxNumber;
+    document.getElementById("registration-number-ckeckbox").checked = data.hasRegistrationNumber;
     document.getElementById("registration-number-input").value = data.registrationNumber;
     document.getElementById("not-vat-payer-ckeckbox").checked = data.notVatPayer ?? false;
     document.getElementById("bank-account-number-input").value = data.bankAccountNumber;
