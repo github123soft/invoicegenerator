@@ -1,3 +1,11 @@
+function noTranslation(lang, what) {
+    return internalProgramError("string '" + what + "' has no translation to language '" + lang + "'.");
+}
+
+function unexpectedLanguageCode(lang) {
+    return internalProgramError("Unexpected language code: '" + lang + "'.");
+}
+
 function lang2base64xml(lang) {
     if(lang.localeCompare("English") == 0)
         return EN_xml;
@@ -18,7 +26,7 @@ function lang2base64xml(lang) {
     if(lang.localeCompare("Azerbaijan") == 0)
         return AZ_xml;
     
-    throw "Internal program error: unexpected language code.";
+    throw unexpectedLanguageCode(lang);
 }
 
 function lang2base64html(lang) {
@@ -41,7 +49,7 @@ function lang2base64html(lang) {
     if(lang.localeCompare("Azerbaijan") == 0)
         return AZ_html;
     
-    throw "Internal program error: unexpected language code.";
+    throw unexpectedLanguageCode(lang);
 }
 
 function dateToLocal(parsedDate, lang) {
@@ -64,7 +72,7 @@ function dateToLocal(parsedDate, lang) {
     if(lang.localeCompare("Azerbaijan") == 0)
         return parsedDate.mm + '/' + parsedDate.dd + '/' + parsedDate.yyyy;
     
-    throw "Internal program error: unexpected language code.";
+    throw unexpectedLanguageCode(lang);
 }
 
 function amountToLocal(amount, lang) {
@@ -87,7 +95,7 @@ function amountToLocal(amount, lang) {
     if(lang.localeCompare("Azerbaijan") == 0)
         return formatAmount(amount, '.');
     
-    throw "Internal program error: unexpected language code.";
+    throw unexpectedLanguageCode(lang);
 }
 
 function isCustomInvoiceNo(lang) {
@@ -110,7 +118,7 @@ function isCustomInvoiceNo(lang) {
     if(lang.localeCompare("Azerbaijan") == 0)
         return false;
     
-    throw "Internal program error: unexpected language code.";
+    throw unexpectedLanguageCode(lang);
 }
 
 function isEU(lang) {
@@ -153,5 +161,12 @@ function noRegistrationNumberLocal(lang) {
     if(lang.localeCompare("Azerbaijan") == 0)
         return "Qeydiyyat nömrəsi yoxdur";
     
-    throw "Internal program error: unexpected language code.";
+    throw noTranslation(lang, "No Registration Number");
+}
+
+function reverseChargeLocal(lang) {
+    if(lang.localeCompare("Czech") == 0)
+        return "Režim přenesené daňové povinnosti";
+    
+    throw noTranslation(lang, "Reverse charge");
 }

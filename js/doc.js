@@ -57,8 +57,18 @@ function fillTemplate(xml, data) {
     var taxNumberPol = evalTaxNumberPol(data.taxNumber, data.notVatPayer ?? false, data.language);
     xml = xml.replaceAll(/\{taxNumberPol\}/g, taxNumberPol);
 
-    document.getElementById("not-vat-payer-ckeckbox").checked = data.notVatPayer ?? false;
-
+    let notVatPayer = data.notVatPayer ?? false;
+    document.getElementById("not-vat-payer-ckeckbox").checked = notVatPayer;
+    
+    xml = xml.replaceAll(
+        /\{ReverseChargeLocal\}/g, 
+        notVatPayer ? reverseChargeLocal(data.language) : ""
+    );
+    xml = xml.replaceAll(
+        /\{ReverseChargePol\}/g, 
+        notVatPayer ? "Odwrotne obciążenie" : ""
+    );
+    
     if(data.hasRegistrationNumber){
         xml = xml.replaceAll(/\{registrationNumber\}/g, data.registrationNumber);
         xml = xml.replaceAll(/\{registrationNumberLocal\}/g, data.registrationNumber);

@@ -1,3 +1,7 @@
+function internalProgramError(what) {
+    return "Internal program error: " + what;
+}
+
 function downloadBlob(blob, name = 'file.txt') {
     const blobUrl = URL.createObjectURL(blob);
     const link = document.createElement("a");
