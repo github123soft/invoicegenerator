@@ -62,11 +62,11 @@ function fillTemplate(xml, data) {
     
     xml = xml.replaceAll(
         /\{ReverseChargeLocal\}/g, 
-        notVatPayer ? reverseChargeLocal(data.language) : ""
+        notVatPayer ? "" : reverseChargeLocal(data.language)
     );
     xml = xml.replaceAll(
         /\{ReverseChargePol\}/g, 
-        notVatPayer ? "Odwrotne obciążenie" : ""
+        notVatPayer ? "" : "Odwrotne obciążenie"
     );
     
     if(data.hasRegistrationNumber){
