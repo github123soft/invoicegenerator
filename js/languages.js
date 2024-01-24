@@ -168,5 +168,5 @@ function reverseChargeLocal(lang) {
     if(lang.localeCompare("Czech") == 0)
         return "Režim přenesené daňové povinnosti";
     
-    throw noTranslation(lang, "Reverse charge");
+    return "Reverse charge";
 }
