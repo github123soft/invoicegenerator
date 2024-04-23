@@ -1,5 +1,5 @@
 function fillTemplate(xml, data) {
-    var invoiceNo;
+    let invoiceNo;
     if(isCustomInvoiceNo(data.language)){
         invoiceNo = data.invoiceFullNo;
     }else{
@@ -7,17 +7,17 @@ function fillTemplate(xml, data) {
     }
     xml = xml.replaceAll(/\{invoiceNo\}/g, invoiceNo);
 
-    var invoiceDate = parseDate(data.invoiceDate);
+    let invoiceDate = parseDate(data.invoiceDate);
     xml = xml.replaceAll(/\{invoiceDateLocal\}/g, dateToLocal(invoiceDate, data.language));
     xml = xml.replaceAll(/\{invoiceDatePol\}/g, dateToPolish(invoiceDate));
 
     xml = xml.replaceAll(/\{contractNo\}/g, data.contractNo);
 
-    var contractDate = parseDate(data.contractDate);
+    let contractDate = parseDate(data.contractDate);
     xml = xml.replaceAll(/\{contractDateLocal\}/g, dateToLocal(contractDate, data.language));
     xml = xml.replaceAll(/\{contractDatePol\}/g, dateToPolish(contractDate));
 
-    var companyTypePol;
+    let companyTypePol;
     if(data.companyTypePol.localeCompare("PE") == 0){
         companyTypePol = "Przedsiębiorca indywidualny";
     }else if(data.companyTypePol.localeCompare("Firm") == 0){
@@ -33,13 +33,13 @@ function fillTemplate(xml, data) {
     xml = xml.replaceAll(/\{countryLocal\}/g, data.countryLocal);
     xml = xml.replaceAll(/\{countryPol\}/g, data.countryPolish);
 
-    var addressExtraLocal = data.addressExtraLocal ?? '';
+    let addressExtraLocal = data.addressExtraLocal ?? '';
     if(addressExtraLocal.length > 0){
         addressExtraLocal = addressExtraLocal + ", ";
     }
     xml = xml.replaceAll(/\{addressExtraLocal\}/g, addressExtraLocal);
 
-    var addressExtraPol = data.addressExtraPol ?? '';
+    let addressExtraPol = data.addressExtraPol ?? '';
     if(addressExtraPol.length > 0){
         addressExtraPol = addressExtraPol + ", ";
     }
@@ -53,11 +53,13 @@ function fillTemplate(xml, data) {
     xml = xml.replaceAll(/\{streetLocal\}/g, data.streetLocal);
     xml = xml.replaceAll(/\{streetPol\}/g, data.streetPolish);
 
+    let notVatPayer = data.notVatPayer ?? false;
+    
     xml = xml.replaceAll(/\{taxNumber\}/g, data.taxNumber);
-    var taxNumberPol = evalTaxNumberPol(data.taxNumber, data.notVatPayer ?? false, data.language);
+    let taxNumberPol = evalTaxNumberPol(data.taxNumber, notVatPayer, data.language);
     xml = xml.replaceAll(/\{taxNumberPol\}/g, taxNumberPol);
 
-    let notVatPayer = data.notVatPayer ?? false;
+    
     document.getElementById("not-vat-payer-ckeckbox").checked = notVatPayer;
     
     xml = xml.replaceAll(
@@ -91,11 +93,11 @@ function fillTemplate(xml, data) {
     xml = xml.replaceAll(/\{medBankSwiftCode\}/g, data.useMedBank ? data.medBankSwiftCode : '');
     xml = xml.replaceAll(/\{medBankAccNo\}/g, data.useMedBank ? data.medBankAcc : '');
 
-    var serviceBeginDate = parseDate(data.serviceBeginDate);
+    let serviceBeginDate = parseDate(data.serviceBeginDate);
     xml = xml.replaceAll(/\{startDateLocal\}/g, dateToLocal(serviceBeginDate, data.language));
     xml = xml.replaceAll(/\{startDatePol\}/g, dateToPolish(serviceBeginDate));
 
-    var serviceEndDate = parseDate(data.serviceEndDate);
+    let serviceEndDate = parseDate(data.serviceEndDate);
     xml = xml.replaceAll(/\{endDateLocal\}/g, dateToLocal(serviceEndDate, data.language));
     xml = xml.replaceAll(/\{endDatePol\}/g, dateToPolish(serviceEndDate));
 
@@ -105,7 +107,7 @@ function fillTemplate(xml, data) {
     xml = xml.replaceAll(/\{amountLocal\}/g, amountToLocal(data.amount, data.language));
     xml = xml.replaceAll(/\{amountPol\}/g, amountToPolish(data.amount));
     
-    var termOfPayment = parseDate(data.termOfPayment);
+    let termOfPayment = parseDate(data.termOfPayment);
     xml = xml.replaceAll(/\{termOfPaimentLocal\}/g, dateToLocal(termOfPayment, data.language));
     xml = xml.replaceAll(/\{termOfPaimentPol\}/g, dateToPolish(termOfPayment));
 

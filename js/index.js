@@ -1,7 +1,7 @@
-var insideGUI = false;
+let insideGUI = false;
 
 function handleException(err) {
-    var errorDisplayer = document.getElementById("error-displayer");
+    let errorDisplayer = document.getElementById("error-displayer");
     errorDisplayer.innerHTML = err;
     errorDisplayer.style.display = 'block';    
 }
@@ -11,7 +11,7 @@ function dateToPolish(parsedDate) {
 }
 
 function displayNoError() {
-    var errorDisplayer = document.getElementById("error-displayer");
+    let errorDisplayer = document.getElementById("error-displayer");
     errorDisplayer.style.display = 'none';
 }
 
@@ -21,20 +21,20 @@ function OnFormPageGoBack() {
 }
 
 function makeInvoiceFileName(data) {
-    var parsedDate = parseDate(data.invoiceDate);
-    var name = data.peNamePolish.replaceAll(/\ssyn\s.*/g, '').replaceAll(/\scórka\s.*/g, '').replaceAll(/\s+/g, '-');
+    let parsedDate = parseDate(data.invoiceDate);
+    let name = data.peNamePolish.replaceAll(/\ssyn\s.*/g, '').replaceAll(/\scórka\s.*/g, '').replaceAll(/\s+/g, '-');
     return 'invoice-' + name + '-' + parsedDate.yyyy + '-' + parsedDate.mm + '.xml';
 }
 
 function OnFormPageGenerateInvoice() {
     try{
-        var data = validateForm();
+        let data = validateForm();
         saveDataToLocalStorage(data);
 
-        var xmlString = b64DecodeUnicode(lang2base64xml(data.language));
+        let xmlString = b64DecodeUnicode(lang2base64xml(data.language));
         xmlString = fillTemplate(xmlString, data);
-        var invoiceName = makeInvoiceFileName(data);
-        var blob = new Blob([xmlString], {type : 'text/xml'});
+        let invoiceName = makeInvoiceFileName(data);
+        let blob = new Blob([xmlString], {type : 'text/xml'});
         downloadBlob(blob, invoiceName);
         displayNoError();
     }catch(err){
@@ -61,7 +61,7 @@ function OnCreateFromScratch() {
 function onLoadData(formCaption, dataLoader) {
     insideGUI = true;
     try{
-        var data = dataLoader();
+        let data = dataLoader();
         fillForm(data);
         OnLanguageSelectChange();
         OnMedBankCheckboxChange();
@@ -83,12 +83,12 @@ function OnLoadLastValidatedData() {
 function OnServicesPeriodBeginDateInputChange() {
     insideGUI = true;
     try{
-        var beginDate = normalizeDate(document.getElementById("services-period-begin-date-input").valueAsDate);
-        var endDate = normalizeDate(document.getElementById("services-period-end-date-input").valueAsDate);
+        let beginDate = normalizeDate(document.getElementById("services-period-begin-date-input").valueAsDate);
+        let endDate = normalizeDate(document.getElementById("services-period-end-date-input").valueAsDate);
         if(!endDate){
-            var mm = beginDate.getMonth();
-            var maxDD = 31;
-            var dd = beginDate.getDate();
+            let mm = beginDate.getMonth();
+            let maxDD = 31;
+            let dd = beginDate.getDate();
             switch(mm){
             case 0: // jan, 31 days
                 maxDD = 28;
@@ -126,7 +126,7 @@ function OnServicesPeriodBeginDateInputChange() {
 }
 
 function OnGeneratePrintableView() {
-    var str = '<!DOCTYPE html>\
+    let str = '<!DOCTYPE html>\
     <html>\
     <head>\
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>\
@@ -139,20 +139,20 @@ function OnGeneratePrintableView() {
         window.print();\
     </script>\
     </html>';
-    var blob = new Blob([str], {type : 'text/html'});
+    let blob = new Blob([str], {type : 'text/html'});
     navigateBlob(blob);
 }
 
 function OnFormPageGenerateHtml() {
     try{
-        var data = validateForm();
-        var invoiceName = makeInvoiceFileName(data);
+        let data = validateForm();
+        let invoiceName = makeInvoiceFileName(data);
 
-        var htmlString = b64DecodeUnicode(lang2base64html(data.language));
+        let htmlString = b64DecodeUnicode(lang2base64html(data.language));
         htmlString = fillTemplate(htmlString, data);
         htmlString = htmlString.replaceAll(/\{title\}/g, invoiceName);
         
-        var blob = new Blob([htmlString], {type : 'text/html'});
+        let blob = new Blob([htmlString], {type : 'text/html'});
         navigateBlob(blob);
 
         displayNoError();
@@ -162,21 +162,21 @@ function OnFormPageGenerateHtml() {
 }
 
 function OnBase64FileInputChange() {
-    var input = document.getElementById('base64-file-input');
-    var file = input.files[0];
+    let input = document.getElementById('base64-file-input');
+    let file = input.files[0];
     if (!file)
         return;
 
-    var reader = new FileReader();
+    let reader = new FileReader();
     reader.onload = function(e) {
-        var str = reader.result;
-        var b64 = b64EncodeUnicode(str);
-        var decoded = b64DecodeUnicode(b64)
+        let str = reader.result;
+        let b64 = b64EncodeUnicode(str);
+        let decoded = b64DecodeUnicode(b64)
         document.getElementById('base64-file-input-textarea').value = decoded;
 
-        var name = file.name.replaceAll(/[\s-.]+/g, '_');
-        var source = 'const ' + name + ' = "' + b64 + '";\n';
-        var blob = new Blob([source], {type : 'application/javascript'});
+        let name = file.name.replaceAll(/[\s-.]+/g, '_');
+        let source = 'const ' + name + ' = "' + b64 + '";\n';
+        let blob = new Blob([source], {type : 'application/javascript'});
         downloadBlob(blob, file.name + ".js");
     };
     reader.readAsText(file);
@@ -184,19 +184,19 @@ function OnBase64FileInputChange() {
 
 function OnCreateFromPrevious() {
     onLoadData("Creating new invoice based on previously saved invoice", () => {
-        var data = loadDataFromLocalStorage();
+        let data = loadDataFromLocalStorage();
         
         data.invoiceShortNo++;
         
-        var serviceBeginDate = normalizeDate(data.serviceEndDate);
+        let serviceBeginDate = normalizeDate(data.serviceEndDate);
         serviceBeginDate.setDate(serviceBeginDate.getDate() + 1);
         
-        var serviceEndDate = normalizeDate(serviceBeginDate);
+        let serviceEndDate = normalizeDate(serviceBeginDate);
         serviceEndDate.setDate(32); // go next month
         if(serviceBeginDate.getDate() == 1){
             serviceEndDate.setDate(0); // go last day of prev month
         }else{
-            var mm = serviceEndDate.getMonth();
+            let mm = serviceEndDate.getMonth();
             serviceEndDate.setDate(serviceBeginDate.getDate() - 1);
             if(serviceEndDate.getMonth() != mm){ // mm is too short month
                 serviceEndDate = normalizeDate(serviceBeginDate);
@@ -208,7 +208,7 @@ function OnCreateFromPrevious() {
         data.serviceBeginDate = serviceBeginDate;
         data.serviceEndDate = serviceEndDate;
 
-        var invoiceDate = normalizeDate(serviceEndDate);
+        let invoiceDate = normalizeDate(serviceEndDate);
         if(invoiceDate.getMonth() < 10){
             invoiceDate.setDate(23);
         }else{
@@ -224,11 +224,11 @@ function OnCreateFromPrevious() {
 
 function OnLanguageSelectChange() {
     
-    var label = document.getElementById("invoice-no-label");
-    var shortInput = document.getElementById("invoice-short-no-input");
-    var fullInput = document.getElementById("invoice-full-no-input");
+    let label = document.getElementById("invoice-no-label");
+    let shortInput = document.getElementById("invoice-short-no-input");
+    let fullInput = document.getElementById("invoice-full-no-input");
 
-    var language = document.getElementById("language-select").value;
+    let language = document.getElementById("language-select").value;
     if(!language) {
         label.innerHTML = "";
         shortInput.style.display = "none";
@@ -245,8 +245,8 @@ function OnLanguageSelectChange() {
         }
 
         
-        var registrationNumberInput = document.getElementById("registration-number-input");
-        var registrationNumberCheckbox = document.getElementById("registration-number-ckeckbox");
+        let registrationNumberInput = document.getElementById("registration-number-input");
+        let registrationNumberCheckbox = document.getElementById("registration-number-ckeckbox");
 
         if(requiresRegistrationNumber(language)){
             registrationNumberInput.style.display = "block";
@@ -265,25 +265,25 @@ function OnLanguageSelectChange() {
 }
 
 function OnRegistrationNumberCheckboxChange() {
-    var registrationNumberInput = document.getElementById("registration-number-input");
-    var registrationNumberCheckbox = document.getElementById("registration-number-ckeckbox");
+    let registrationNumberInput = document.getElementById("registration-number-input");
+    let registrationNumberCheckbox = document.getElementById("registration-number-ckeckbox");
     
     registrationNumberInput.style.display = registrationNumberCheckbox.checked ? "block" : "none";
 }
 
 function OnMedBankCheckboxChange() {
-    var checkbox = document.getElementById("med-bank-ckeckbox");
+    let checkbox = document.getElementById("med-bank-ckeckbox");
     document.getElementById("med-bank-table").style.display = checkbox.checked ? "block" : "none";
 }
 
 function OnFormPageSaveJSON() {
     try{
-        var data = {
+        let data = {
             storage: loadDataFromLocalStorage(),
             form: validateForm()
         };
-        var json = JSON.stringify(data);
-        var blob = new Blob([json], {type : 'application/json'});
+        let json = JSON.stringify(data);
+        let blob = new Blob([json], {type : 'application/json'});
         downloadBlob(blob, "123soft-invoice-data.json");
         displayNoError();
     }catch(err){
@@ -293,14 +293,14 @@ function OnFormPageSaveJSON() {
 
 function OnFormPageLoadFromJSON() {
     try{
-        var input = document.getElementById('load-json-input');
-        var file = input.files[0];
+        let input = document.getElementById('load-json-input');
+        let file = input.files[0];
         if (!file)
             return;
 
-        var reader = new FileReader();
+        let reader = new FileReader();
         reader.onload = function(e) {
-            var data = JSON.parse(reader.result);
+            let data = JSON.parse(reader.result);
             saveDataToLocalStorage(data.form);
             onLoadData(document.getElementById("form-title").innerHTML, loadDataFromLocalStorage);
             saveDataToLocalStorage(data.storage);

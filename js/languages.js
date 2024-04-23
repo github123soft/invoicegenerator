@@ -122,12 +122,7 @@ function isCustomInvoiceNo(lang) {
 }
 
 function isEU(lang) {
-    return (
-        (lang.localeCompare("Bulgarian") == 0)
-        || (lang.localeCompare("Czech") == 0)
-        || (lang.localeCompare("Lithuanian") == 0)
-        || (lang.localeCompare("Polish") == 0)
-    );
+    return ["Bulgarian", "Czech", "English", "Lithuanian", "Polish"].includes(lang);
 }
 
 function isBilingual(lang) {
@@ -150,7 +145,7 @@ function currencyToLocal(currency, lang) {
 }
 
 function requiresRegistrationNumber(lang) {
-    return (lang.localeCompare("Azerbaijan") != 0);
+    return ! ["Azerbaijan", "English"].includes(lang);
 }
 
 function noRegistrationNumberPol() {
@@ -160,6 +155,8 @@ function noRegistrationNumberPol() {
 function noRegistrationNumberLocal(lang) {
     if(lang.localeCompare("Azerbaijan") == 0)
         return "Qeydiyyat nömrəsi yoxdur";
+    if(lang.localeCompare("English") == 0)
+        return "No Registration Number";
     
     throw noTranslation(lang, "No Registration Number");
 }
@@ -167,6 +164,8 @@ function noRegistrationNumberLocal(lang) {
 function reverseChargeLocal(lang) {
     if(lang.localeCompare("Czech") == 0)
         return "Režim přenesené daňové povinnosti";
+    if(lang.localeCompare("English") == 0)
+        return "Reverse charge";
     
-    return "Reverse charge";
+    throw noTranslation(lang, "Reverse charge");
 }

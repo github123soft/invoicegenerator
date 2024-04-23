@@ -1,9 +1,9 @@
 function validateForm() {
-    var result = {
+    let result = {
         language: document.getElementById("language-select").value
     };
 
-    var input = document.getElementById("contract-no-input");
+    let input = document.getElementById("contract-no-input");
     result.contractNo = input.value.trim();
     checkInput(result.contractNo, input, "Invalid contract number. Cannot be empty.");
 
@@ -50,7 +50,7 @@ function validateForm() {
     input = document.getElementById("term-of-payment-input");
     result.termOfPayment = normalizeDate(input.valueAsDate);
     checkInput(result.termOfPayment, input, "Invalid term of payment. Cannot be empty.");
-    var minTermOfPayment = evalMinTermOfPayment(result.invoiceDate);
+    let minTermOfPayment = evalMinTermOfPayment(result.invoiceDate);
     checkInput(minTermOfPayment <= result.termOfPayment, input, "Invalid term of payment. Should be not less than 10th of the next month relative to invoice date.");
     
     input = document.getElementById("tax-number-input");

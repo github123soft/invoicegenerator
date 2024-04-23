@@ -48,7 +48,7 @@ function checkInput(ok, input, what) {
 }
 
 function parseDate(date) {
-    var result = {
+    let result = {
         yyyy: date.getFullYear(),
         mm: date.getMonth() + 1,
         dd: date.getDate()
@@ -61,12 +61,12 @@ function parseDate(date) {
 }
 
 function normalizeDate(date) {
-    var x = new Date(date);
+    let x = new Date(date);
     return new Date(x.getFullYear(), x.getMonth(), x.getDate(), 1, 0, 0, 0);
 }
 
 function evalMinTermOfPayment(invoiceDate) {
-    var minTermOfPayment = new Date(invoiceDate);
+    let minTermOfPayment = new Date(invoiceDate);
     if (minTermOfPayment.getMonth() == 11) {
         minTermOfPayment = new Date(minTermOfPayment.getFullYear() + 1, 0, 10);
     } else {
@@ -76,9 +76,9 @@ function evalMinTermOfPayment(invoiceDate) {
 }
 
 function setDateInputValue(inputId, date) {
-    var input = document.getElementById(inputId);
+    let input = document.getElementById(inputId);
     if(date){
-        var parsed = parseDate(new Date(date));
+        let parsed = parseDate(new Date(date));
         input.value = parsed.yyyy + '-' + parsed.mm + '-' + parsed.dd;
     }else{
         input.value = '';
@@ -103,7 +103,7 @@ function b64DecodeUnicode(str) {
 }
 
 function formatAmount(amount, dot) {
-    var num = (Math.round(amount * 100) / 100).toFixed(2);
+    let num = (Math.round(amount * 100) / 100).toFixed(2);
     if(dot.localeCompare(".") == 0)
         return num;
     return num.replace('.', dot);
@@ -114,16 +114,16 @@ function amountToPolish(amount) {
 }
 
 function loadDataFromLocalStorage() {
-    var dataString = localStorage.getItem("last-valid-data");
+    let dataString = localStorage.getItem("last-valid-data");
     if(!dataString)
         throw "There is no validated data to load from the browser's local storage.";
-    var result = JSON.parse(dataString);
+    let result = JSON.parse(dataString);
     if(undefined === result.hasRegistrationNumber)
         result.hasRegistrationNumber = true;
     return result;
 }
 
 function saveDataToLocalStorage(data) {
-    var dataString = JSON.stringify(data);
+    let dataString = JSON.stringify(data);
     localStorage.setItem("last-valid-data", dataString);
 }
