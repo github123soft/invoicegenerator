@@ -167,5 +167,5 @@ function reverseChargeLocal(lang) {
     if(lang.localeCompare("English") == 0)
         return "Reverse charge";
     
-    throw noTranslation(lang, "Reverse charge");
+    return "Reverse charge";
 }
