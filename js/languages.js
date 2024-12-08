@@ -145,7 +145,7 @@ function currencyToLocal(currency, lang) {
 }
 
 function requiresRegistrationNumber(lang) {
-    return ! ["Azerbaijan", "English"].includes(lang);
+    return ! ["Azerbaijan", "English", "Kazakh"].includes(lang);
 }
 
 function noRegistrationNumberPol() {
@@ -157,6 +157,8 @@ function noRegistrationNumberLocal(lang) {
         return "Qeydiyyat nömrəsi yoxdur";
     if(lang.localeCompare("English") == 0)
         return "No Registration Number";
+    if(lang.localeCompare("Kazakh") == 0)
+        return "Нет регистрационного номера";
     
     throw noTranslation(lang, "No Registration Number");
 }

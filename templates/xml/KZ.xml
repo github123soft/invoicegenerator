@@ -333,8 +333,8 @@
     <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">РНН:</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">{registrationNumber}</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Регистрационный номер:</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">{registrationNumberLocal}</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Nr. Rejestracyjny:</Data></Cell>
