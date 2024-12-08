@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{title}</title>
+    <style type="text/css">
+        .page_layout {
+            max-width: 21.001cm;
+            margin-top: 1.499cm;
+            margin-bottom: 2cm;
+            margin-left: 1cm;
+            margin-right: 1cm;
+        }
+
+        table#invoice {
+            border: 0;
+            border-style: none;
+            width: 19cm;
+            margin-left: 0cm;
+            margin-top: 0cm;
+            margin-bottom: 0cm;
+            margin-right: auto;
+            font-family: Times New Roman;
+            font-size: 12pt;
+        }
+
+            table#invoice td:nth-child(1) {
+                width: 9.25cm;
+                background-color: transparent;
+                padding: 0cm;
+            }
+
+            table#invoice td:nth-child(2) {
+                width: 9.75cm;
+                background-color: transparent;
+                padding: 0cm;
+            }
+
+        @page {
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            empty-cells: show
+        }
+
+        td, th {
+            vertical-align: top;
+            font-size: 12pt;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            clear: both;
+        }
+
+        ol, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            margin: 0;
+        }
+
+        #invoice .header {
+            font-size: 12pt;
+            text-align: center !important;
+        }
+
+        #invoice td.blank_row {
+            height: 12px !important; /* overwrites any other rules */
+            background-color: #FFFFFF;
+        }
+
+        #invoice td.textline {
+            font-size: 12pt;
+            text-align: left !important;
+        }
+    </style>
+</head>
+<body class="page_layout" onload="window.print()">
+    <table id="invoice" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <p class="header">
+                    Фактура № {invoiceNo}
+                    <br />дата {invoiceDateLocal}
+                    <br />По отношение на договор номер {contractNo}
+                    <br />от дата {contractDateLocal}
+                </p>
+            </td>
+            <td>
+                <p class="header">
+                    Faktura Nr {invoiceNo}
+                    <br />z {invoiceDatePol}
+                    <br />w odniesieniu do umowy numer {contractNo} z dnia
+                    <br />{contractDatePol}
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Доставчик: <b>{PENameLocal}</b></p>
+                <p class="textline">Адрес: {countryLocal}, {addressExtraLocal}{cityLocal}, {postalCode}, {streetLocal}</p>
+                <p class="textline">ДДС номер: BG{taxNumber}</p>
+                <p class="textline">Идентификационен номер: {registrationNumber}</p>
+            </td>
+            <td>
+                <p class="textline">Wystawiający: <b>Firma {PENamePol}</b></p>
+                <p class="textline">Adres: {streetPol}, {postalCode}, {cityPol}, {addressExtraPol}{countryPol}</p>
+                <p class="textline">Nr. podatkowy: BG{taxNumberPol}</p>
+                <p class="textline">Nr. rejestracyjny: {registrationNumber}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Сметка:<br /><b>{bankAccountNo}</b></p>
+            </td>
+            <td>
+                <p class="textline">Rachunek bankowy:<br /><b>{bankAccountNo}</b></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Титуляр: {beneficiaryName}</p>
+                <p class="textline">Адрес на титуляра: {beneficiaryAddress}</p>
+            </td>
+            <td>
+                <p class="textline">Beneficiary name: {beneficiaryName}</p>
+                <p class="textline">Beneficiary address: {beneficiaryAddress}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Банка: {bankName}</p>
+            </td>
+            <td>
+                <p class="textline">Bank name: {bankName}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Адрес на банката: {bankAddress}</p>
+            </td>
+            <td>
+                <p class="textline">Bank address: {bankAddress}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">SWIFT/BIC: {swiftCode}</p>
+            </td>
+            <td>
+                <p class="textline">SWIFT/BIC: {swiftCode}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">
+                    Получател: 123Soft sp. z o.o.
+                    <br />Pl. Kilińskiego 2, 35-005 Rzeszów, Poland
+                    <br />REGON: 365966808
+                    <br />NIP: 5170378214
+                </p>
+            </td>
+            <td>
+                <p class="textline">
+                    Wystawiono na: 123Soft sp. z o.o.
+                    <br />Pl. Kilińskiego 2, 35-005 Rzeszów, Polska
+                    <br />REGON: 365966808
+                    <br />NIP: 5170378214
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">
+                    <span>Услуги:</span>
+                </p>
+                <p class="textline">
+                    Разработка на софтуер
+                    <br />от <b>{startDateLocal}</b> до <b>{endDateLocal}</b>.
+                    <br /><b>Сума: {amountLocal} {currency}.</b>
+                </p>
+            </td>
+            <td>
+                <p class="textline">Usługi:</p>
+                <p class="textline">
+                    Usługi, dotyczące rozwoju oprogramowania
+                    <br />od <b>{startDatePol}</b> do <b>{endDatePol}</b>.
+                    <br /><b>Kwota: {amountPol} {currency}.</b>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Дата на падеж: {termOfPaimentLocal}</p>
+            </td>
+            <td>
+                <p class="textline">Termin płatności: {termOfPaimentPol}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Начин на плащане: по сметка.</p>
+            </td>
+            <td>
+                <p class="textline">Forma opłaty: przelew.</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">
+                    Плащането по тази фактура е едновременно потвърждение на доставените услуги, окончателно споразумение между страните и че страните нямат претенции една към друга и не изисква подписването на допълнителни документи.
+                </p>
+            </td>
+            <td>
+                <p class="textline">
+                    Opłata tej faktury jest jednocześnie porwierdzeniem nadania usług, ostatecznych rozrachunków pomiędzy Stronami oraz tego, że Strony nie mają wzajemnych pretensji, i nie wymaga podpisania dodatkowych dokumentów.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p class="textline">
+                    {signerNameLocal} ({signerNamePol})    ___________________
+                </p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

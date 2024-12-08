@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{title}</title>
+    <style type="text/css">
+        .page_layout {
+            max-width: 21.001cm;
+            margin-top: 1.499cm;
+            margin-bottom: 2cm;
+            margin-left: 1cm;
+            margin-right: 1cm;
+        }
+
+        table#invoice {
+            border: 0;
+            border-style: none;
+            width: 19cm;
+            margin-left: 0cm;
+            margin-top: 0cm;
+            margin-bottom: 0cm;
+            margin-right: auto;
+            font-family: Times New Roman;
+            font-size: 12pt;
+        }
+
+            table#invoice td:nth-child(1) {
+                width: 9.25cm;
+                background-color: transparent;
+                padding: 0cm;
+            }
+
+            table#invoice td:nth-child(2) {
+                width: 9.75cm;
+                background-color: transparent;
+                padding: 0cm;
+            }
+
+        @page {
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            empty-cells: show
+        }
+
+        td, th {
+            vertical-align: top;
+            font-size: 12pt;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            clear: both;
+        }
+
+        ol, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            margin: 0;
+        }
+
+        #invoice .header {
+            font-size: 12pt;
+            text-align: center !important;
+        }
+
+        #invoice td.blank_row {
+            height: 12px !important; /* overwrites any other rules */
+            background-color: #FFFFFF;
+        }
+
+        #invoice td.textline {
+            font-size: 12pt;
+            text-align: left !important;
+        }
+    </style>
+</head>
+<body class="page_layout" onload="window.print()">
+    <table id="invoice" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <p class="header">
+                    Счет № {invoiceNo}
+                    <br />от {invoiceDateLocal}
+                    <br />согласно договору номер {contractNo} от
+                    <br />{contractDateLocal}
+                </p>
+            </td>
+            <td>
+                <p class="header">
+                    Faktura Nr {invoiceNo}
+                    <br />z {invoiceDatePol}
+                    <br />w odniesieniu do umowy numer {contractNo} z dnia
+                    <br />{contractDatePol}
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Выставлен: <b>{PENameLocal}</b></p>
+                <p class="textline">Адрес: {countryLocal}, {addressExtraLocal}{cityLocal}, {postalCode}, {streetLocal}</p>
+                <p class="textline">ИИН: {taxNumber}</p>
+                <p class="textline">РНН: {registrationNumber}</p>
+            </td>
+            <td>
+                <p class="textline">Wystawiający: <b>{companyTypePol} {PENamePol}</b></p>
+                <p class="textline">Adres: {streetPol}, {postalCode}, {cityPol}, {addressExtraPol}{countryPol}</p>
+                <p class="textline">Nr. podatkowy: {taxNumber}</p>
+                <p class="textline">Nr. rejestracyjny: {registrationNumber}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Номер счета:<br /><b>{bankAccountNo}</b></p>
+            </td>
+            <td>
+                <p class="textline">Rachunek bankowy:<br /><b>{bankAccountNo}</b></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Beneficiary name: {beneficiaryName}</p>
+                <p class="textline">Beneficiary address: {beneficiaryAddress}</p>
+            </td>
+            <td>
+                <p class="textline">Beneficiary name: {beneficiaryName}</p>
+                <p class="textline">Beneficiary address: {beneficiaryAddress}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Bank name: {bankName}</p>
+            </td>
+            <td>
+                <p class="textline">Bank name: {bankName}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Bank address: {bankAddress}</p>
+            </td>
+            <td>
+                <p class="textline">Bank address: {bankAddress}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">SWIFT/BIC: {swiftCode}</p>
+            </td>
+            <td>
+                <p class="textline">SWIFT/BIC: {swiftCode}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr style="display: {medBankDisplay};">
+            <td>
+                <p class="textline">Банк-корреспондент:</p>
+                <p class="textline">Bank name: {medBankName}</p>
+                <p class="textline">Bank address: {medBankAddress}</p>
+                <p class="textline">SWIFT/BIC: {medBankSwiftCode}</p>
+                <p class="textline">Acc. In correspondent bank: {medBankAccNo}</p>
+            </td>
+            <td>
+                <p class="textline">Bank pośredniczący:</p>
+                <p class="textline">Bank name: {medBankName}</p>
+                <p class="textline">Bank address: {medBankAddress}</p>
+                <p class="textline">SWIFT/BIC: {medBankSwiftCode}</p>
+                <p class="textline">Acc. In correspondent bank: {medBankAccNo}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">
+                    Заказчик/выставлен на: 123Soft sp. z o.o.
+                    <br />Пл. Килиньскего 2, 35-005 Жешув, Польша
+                    <br />REGON: 365966808
+                    <br />NIP: 5170378214
+                </p>
+                <p class="textline">
+                    Банковский счет (IBAN):
+                </p>
+                <p class="textline">PL 90 1050 1562 1000 0090 3111 0308</p>
+                <p class="textline">Название банка: ING Bank Śląski</p>
+            </td>
+            <td>
+                <p class="textline">
+                    Wystawiono na: 123Soft sp. z o.o.
+                    <br />Pl. Kilińskiego 2, 35-005 Rzeszów, Polska
+                    <br />REGON: 365966808
+                    <br />NIP: 5170378214
+                </p>
+                <p class="textline">
+                    Rachunek bankowy (IBAN):
+                </p>
+                <p class="textline">PL 90 1050 1562 1000 0090 3111 0308</p>
+                <p class="textline">Bank name: ING Bank Śląski</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">
+                    <span>Услуги:</span>
+                </p>
+                <p class="textline">
+                    Разработка программного обеспечения<br />период с <b>{startDateLocal}</b> по <b>{endDateLocal}</b>.
+                    <br /><b>Сумма: {amountLocal} {currency}.</b>
+                </p>
+            </td>
+            <td>
+                <p class="textline">Usługi:</p>
+                <p class="textline">
+                    Usługi, dotyczące rozwoju oprogramowania
+                    <br />od <b>{startDatePol}</b> do <b>{endDatePol}</b>.
+                    <br /><b>Kwota: {amountPol} {currency}.</b>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Срок оплаты: до {termOfPaimentLocal}</p>
+            </td>
+            <td>
+                <p class="textline">Termin płatności: {termOfPaimentPol}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Форма оплаты: банковский перевод.</p>
+            </td>
+            <td>
+                <p class="textline">Forma opłaty: przelew.</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">
+                    Оплата согласно данному счету одновременно является подтверждением предоставления услуг, окончательных расчетов между Сторонами и того, что Стороны не имеют взаимных претензий, и не требует подписания дополнительных документов.
+                </p>
+            </td>
+            <td>
+                <p class="textline">
+                    Opłata tej faktury jest jednocześnie porwierdzeniem nadania usług, ostatecznych rozrachunków pomiędzy Stronami oraz tego, że Strony nie mają wzajemnych pretensji, i nie wymaga podpisania dodatkowych dokumentów.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p class="textline">
+                    {signerNameLocal} ({signerNamePol})    ___________________
+                </p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{title}</title>
+    <style type="text/css">
+        .page_layout {
+            max-width: 21.001cm;
+            margin-top: 1.499cm;
+            margin-bottom: 2cm;
+            margin-left: 1cm;
+            margin-right: 1cm;
+        }
+
+        table#invoice {
+            border: 0;
+            border-style: none;
+            width: 19cm;
+            margin-left: 0cm;
+            margin-top: 0cm;
+            margin-bottom: 0cm;
+            margin-right: auto;
+            font-family: Times New Roman;
+            font-size: 12pt;
+        }
+
+            table#invoice td:nth-child(1) {
+                width: 9.25cm;
+                background-color: transparent;
+                padding: 0cm;
+            }
+
+            table#invoice td:nth-child(2) {
+                width: 9.75cm;
+                background-color: transparent;
+                padding: 0cm;
+            }
+
+        @page {
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            empty-cells: show
+        }
+
+        td, th {
+            vertical-align: top;
+            font-size: 12pt;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            clear: both;
+        }
+
+        ol, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            margin: 0;
+        }
+
+        #invoice .header {
+            font-size: 12pt;
+            text-align: center !important;
+        }
+
+        #invoice td.blank_row {
+            height: 12px !important; /* overwrites any other rules */
+            background-color: #FFFFFF;
+        }
+
+        #invoice td.textline {
+            font-size: 12pt;
+            text-align: left !important;
+        }
+    </style>
+</head>
+<body class="page_layout" onload="window.print()">
+    <table id="invoice" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <p class="header">
+                    Sąskaita faktūra № {invoiceNo}
+                    <br />nuo {invoiceDateLocal}
+                    <br />pagal sutarties numerį {contractNo}
+                    <br />nuo {contractDateLocal}
+                </p>
+            </td>
+            <td>
+                <p class="header">
+                    Faktura Nr {invoiceNo}
+                    <br />z {invoiceDatePol}
+                    <br />w odniesieniu do umowy numer {contractNo}
+                    <br />z dnia {contractDatePol}
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Sąskaita: <b>{PENameLocal}</b></p>
+                <p class="textline">Adresas: {countryLocal}, {addressExtraLocal}{cityLocal}, {postalCode}, {streetLocal}</p>
+                <p class="textline">Mokesčių numeris: {taxNumber}</p>
+                <p class="textline">Įmonės kodas: {registrationNumber}</p>
+            </td>
+            <td>
+                <p class="textline">Wystawiający: <b>{companyTypePol} {PENamePol}</b></p>
+                <p class="textline">Adres: {streetPol}, {postalCode}, {cityPol}, {addressExtraPol}{countryPol}</p>
+                <p class="textline">Nr. podatkowy: {taxNumberPol}</p>
+                <p class="textline">Nr. rejestracyjny: {registrationNumber}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Banko sąskaitą: <b>{bankAccountNo}</b></p>
+            </td>
+            <td>
+                <p class="textline">Rachunek bankowy: <b>{bankAccountNo}</b></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Gavėjo vardas: {beneficiaryName}</p>
+                <p class="textline">Gavėjo adresas: {beneficiaryAddress}</p>
+            </td>
+            <td>
+                <p class="textline">Beneficiary name: {beneficiaryName}</p>
+                <p class="textline">Beneficiary address: {beneficiaryAddress}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Banko: {bankName}</p>
+            </td>
+            <td>
+                <p class="textline">Bank name: {bankName}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Banko adresas: {bankAddress}</p>
+            </td>
+            <td>
+                <p class="textline">Bank address: {bankAddress}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">SWIFT kodas: {swiftCode}</p>
+            </td>
+            <td>
+                <p class="textline">SWIFT/BIC: {swiftCode}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">
+                    Klientas: 123Soft sp. z o.o.
+                    <br />Pl. Kilińskiego 2, 35-005 Rzeszów, Polska
+                    <br />Įmonės kodas (REGON): 365966808
+                    <br />PVM: 5170378214
+                </p>
+            </td>
+            <td>
+                <p class="textline">
+                    Wystawiono na: 123Soft sp. z o.o.
+                    <br />Pl. Kilińskiego 2, 35-005 Rzeszów, Polska
+                    <br />REGON: 365966808
+                    <br />NIP: 5170378214
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">
+                    <span>Paslaugos:</span>
+                </p>
+                <p class="textline">
+                    Paslaugos programinės įrangos kūrimas
+                    <br />nuo <b>{startDateLocal}</b> iki <b>{endDateLocal}</b>.
+                    <br /><b>Suma: {amountLocal} {currency}.</b>
+                </p>
+            </td>
+            <td>
+                <p class="textline">Usługi:</p>
+                <p class="textline">
+                    Usługi, dotyczące rozwoju oprogramowania
+                    <br />od <b>{startDatePol}</b> do <b>{endDatePol}</b>.
+                    <br /><b>Kwota: {amountPol} {currency}.</b>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Prašoma mokėjimo data: {termOfPaimentLocal}</p>
+            </td>
+            <td>
+                <p class="textline">Termin płatności: {termOfPaimentPol}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">Mokėjimo forma: banko pavedimu.</p>
+            </td>
+            <td>
+                <p class="textline">Forma opłaty: przelew.</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td>
+                <p class="textline">
+                    Mokėjimas šioje sąskaitoje tuo pačiu metu patvirtina paslaugų teikimą, galutinius atsiskaitymus tarp Šalių ir tai, kad Šalys neturi tarpusavio pretenzijų ir jų nereikalauja. Papildomų dokumentų pasirašymas.
+                </p>
+            </td>
+            <td>
+                <p class="textline">
+                    Opłata tej faktury jest jednocześnie porwierdzeniem nadania usług, ostatecznych rozrachunków pomiędzy Stronami oraz tego, że Strony nie mają wzajemnych pretensji, i nie wymaga podpisania dodatkowych dokumentów.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="blank_row"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p class="textline">
+                    {signerNameLocal} ({signerNamePol})    ___________________
+                </p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,634 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>DELL</Author>
+  <LastAuthor>Katrusia</LastAuthor>
+  <LastPrinted>2021-01-29T07:10:45Z</LastPrinted>
+  <Created>2021-01-26T13:13:30Z</Created>
+  <LastSaved>2022-05-18T08:20:40Z</LastSaved>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>10370</WindowHeight>
+  <WindowWidth>25600</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>32767</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:CharSet="238" x:Family="Swiss" ss:Size="11"
+    ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s64">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s65">
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s66">
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s67">
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s69">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Vertical="Bottom"/>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s74">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s76">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s77">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s78">
+   <Alignment ss:Vertical="Center"/>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s80">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s81">
+   <Alignment ss:Vertical="Center"/>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s83">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s85">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s87">
+   <Alignment ss:Vertical="Center"/>
+   <Borders/>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s88">
+   <Alignment ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s90">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s92">
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s93">
+   <Font ss:FontName="Times New Roman" x:CharSet="238" x:Family="Roman"
+    ss:Size="12" ss:Bold="1"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s95">
+   <Font ss:FontName="Calibri" x:CharSet="238" x:Family="Swiss" ss:Size="12"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s96">
+   <Font ss:FontName="Calibri" x:CharSet="238" x:Family="Swiss" ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s97">
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#000000"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:CharSet="238" x:Family="Swiss" ss:Size="12"/>
+  </Style>
+  <Style ss:ID="s98">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Calibri" x:CharSet="238" x:Family="Swiss" ss:Size="12"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s99">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Font ss:FontName="Times New Roman" x:CharSet="204" x:Family="Roman"
+    ss:Size="12" ss:Bold="1"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s100">
+   <Font ss:FontName="Times New Roman" x:CharSet="204" x:Family="Roman"
+    ss:Size="12" ss:Bold="1"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Arkusz1">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="50" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s96" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s96" ss:AutoFitWidth="0" ss:Width="15.5"/>
+   <Column ss:StyleID="s96" ss:AutoFitWidth="0" ss:Width="12.5"/>
+   <Column ss:StyleID="s96" ss:AutoFitWidth="0" ss:Width="20.5"/>
+   <Column ss:StyleID="s96" ss:AutoFitWidth="0" ss:Width="15.5"/>
+   <Column ss:StyleID="s96" ss:AutoFitWidth="0" ss:Width="111"/>
+   <Column ss:StyleID="s96" ss:AutoFitWidth="0" ss:Width="66.5"/>
+   <Column ss:StyleID="s96" ss:AutoFitWidth="0" ss:Width="102"/>
+   <Column ss:StyleID="s96" ss:AutoFitWidth="0" ss:Width="120.5"/>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:MergeAcross="1" ss:StyleID="s64"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Faktura Nr</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{invoiceNo}</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:Index="2" ss:StyleID="s69"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">z</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{invoiceDatePol}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">w odniesieniu do umowy numer</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{contractNo}</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">z</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{contractDatePol}</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="29.25">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Wystawiający: </Data></Cell>
+    <Cell ss:MergeAcross="2" ss:StyleID="s99"><Data ss:Type="String">{companyTypePol} {PENamePol}</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Adres: </Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Państwo:</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Polska</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Miasto:</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{cityPol}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Kod:</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{postalCode}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Ulica i numer:</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{streetPol}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="31.5">
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Nr. Podatkowy: </Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{taxNumber}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Nr. Rejestracyjny:</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{registrationNumber}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Rachunek bankowy:</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">{bankAccountNo}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:MergeAcross="1" ss:StyleID="s80"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Beneficiary name: </Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{beneficiaryName}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:MergeAcross="1" ss:StyleID="s80"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Beneficiary address: </Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{beneficiaryAddress}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:MergeAcross="1" ss:StyleID="s80"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Bank name: </Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{bankName}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:MergeAcross="1" ss:StyleID="s80"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Bank address: </Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{bankAddress}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:MergeAcross="1" ss:StyleID="s80"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">SWIFT/BIC: </Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{swiftCode}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Bank pośredniczący:</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Bank name: </Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{medBankName}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:Height="15.5">
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Bank address:</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{medBankAddress}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">SWIFT/BIC: </Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{medBankSwiftCode}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:Height="15.5">
+    <Cell ss:MergeAcross="1" ss:StyleID="s83"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Acc. In correspondent bank: </Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{medBankAccNo}</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Wystawiono na: 123Soft sp. z o.o.</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Pl. Kilińskiego 2, 35-005 Rzeszów, Polska</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">REGON: 365966808</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">NIP: 5170378214</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:MergeAcross="2" ss:StyleID="s85"><Data ss:Type="String">Rachunek bankowy (IBAN): </Data></Cell>
+    <Cell ss:StyleID="s87"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">PL 90 1050 1562 1000 0090 3111 0308</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Bank name: ING Bank Śląski</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Usługi:</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:MergeAcross="3" ss:StyleID="s90"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40">Usługi, dotyczące rozwoju oprogramowania od <B>{startDatePol}</B><Font> do </Font><B>{endDatePol}</B></ss:Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s98"/>
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Kwota: </Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">{amountPol}</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">{currency}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="3" ss:StyleID="s65"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Termin płatności: </Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">{termOfPaimentPol}</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:Index="3" ss:StyleID="s65"/>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Forma opłaty: </Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">przelew.</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Zapłacono: </Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">RRRR-MM-DD</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Opłata tej faktury jest jednocześnie potwierdzeniem</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">nadania usług, ostatecznych rozrachunków pomiędzy </Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Stronami oraz tego, że Strony nie mają wzajemnych </Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">pretensji, i nie wymaga podpisania dodatkowych </Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">dokumentów.</Data></Cell>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+    <Cell ss:StyleID="s95"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s97"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.25" x:Right="0.25" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-2</HorizontalResolution>
+    <VerticalResolution>-2</VerticalResolution>
+   </Print>
+   <Zoom>130</Zoom>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>5</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
