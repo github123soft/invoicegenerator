@@ -1,4 +1,8 @@
 <?xml version="1.0"?>
+<!--
+  Based on https://github.com/github123soft/invoicegenerator (GNU GPL v2.0)
+  Modified by Katmait Solutions, 2025. See LICENSE for details.
+-->
 <?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -7,7 +11,7 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>DELL</Author>
-  <LastAuthor>Aleksey</LastAuthor>
+  <LastAuthor>Katsiaryna Tarasiuk</LastAuthor>
   <LastPrinted>2021-01-26T13:24:15Z</LastPrinted>
   <Created>2021-01-26T13:13:30Z</Created>
   <LastSaved>2021-02-17T11:07:52Z</LastSaved>
@@ -449,41 +453,41 @@
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Customer: 123Soft sp. z o.o.</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Customer: Katmait Solutions sp. z o.o.</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Wystawiono na: 123Soft sp. z o.o.</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Wystawiono na: Katmait Solutions sp. z o.o.</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Pl. Kilińskiego 2, 35-005 Rzeszów, Poland</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ul. Jana i Jędrzeja Śniadeckich 20d/7, 35-006 Rzeszów, Poland</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Pl. Kilińskiego 2, 35-005 Rzeszów, Polska</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ul. Jana i Jędrzeja Śniadeckich 20d/7, 35-006 Rzeszów, Polska</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">REGON: 365966808</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">REGON: 541785232</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">REGON: 365966808</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">REGON: 541785232</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">NIP: 5170378214</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">NIP: 5170459645</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s83"/>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">NIP: 5170378214</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">NIP: 5170459645</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>

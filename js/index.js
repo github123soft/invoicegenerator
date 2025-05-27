@@ -1,3 +1,23 @@
+/*
+  This file is part of Katmait Invoice Generator, which is based on
+  invoicegenerator (https://github.com/github123soft/invoicegenerator),
+  originally licensed under the GNU General Public License v2.0.
+
+  Copyright (C) 2025 Katmait Solutions
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, see https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+*/
 let insideGUI = false;
 
 function handleException(err) {
@@ -130,7 +150,7 @@ function OnGeneratePrintableView() {
     <html>\
     <head>\
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>\
-        <title>123Soft invoice generator</title>\
+        <title>Katmait Solutions invoice generator</title>\
     </head>\
     <body>\
         <h1>This is printable page.</h1>\
@@ -235,7 +255,7 @@ function OnLanguageSelectChange() {
         fullInput.style.display = "none";
     }else{
         if(isCustomInvoiceNo(language)){
-            label.innerHTML = "Invoice No.:";
+            label.innerHTML = "Invoice ordinal number:";
             shortInput.style.display = "none";
             fullInput.style.display = "block";
         }else{
@@ -284,7 +304,7 @@ function OnFormPageSaveJSON() {
         };
         let json = JSON.stringify(data);
         let blob = new Blob([json], {type : 'application/json'});
-        downloadBlob(blob, "123soft-invoice-data.json");
+        downloadBlob(blob, "Katmait.Solutions-invoice-data.json");
         displayNoError();
     }catch(err){
         handleException(err);
